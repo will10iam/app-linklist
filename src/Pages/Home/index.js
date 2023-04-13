@@ -2,7 +2,7 @@ import React from 'react'
 import './home.css'
 
 import Social from '../../Components/Social'
-import { FaFacebook, FaWhatsapp, FaInstagram } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaInstagram } from 'react-icons/fa'
 
 
 
@@ -40,8 +40,17 @@ export default function Home() {
 
             <footer>
                 <Social url="https://www.facebook.com/berbetswill">
-                    <FaFacebook size={35} color='#fff' />
+                    <FaFacebook size={35} color="#3b5998" />
                 </Social>
+
+                <Social url="https://github.com/will10iam">
+                    <FaGithub size={35} color='#F1F1F1' />
+                </Social>
+
+                <Social url="https://www.instagram.com/willnasredes/">
+                    <FaInstagram size={35} color='#DD2A7B' />
+                </Social>
+
             </footer>
 
         </div>
