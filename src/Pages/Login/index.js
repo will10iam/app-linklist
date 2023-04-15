@@ -1,16 +1,34 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './login.css'
 import Logo from '../../Components/Logo'
+import { auth } from '../../Services/firebaseConnection'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { toast } from 'react-toastify'
 
 export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    const navigate = useNavigate();
+
     function handleLogin(e) {
         e.preventDefault()
 
-        console.log(email)
-        console.log(password)
+        if (email === '' || password === '') {
+            toast.warning("Insira os dados para logar")
+            return;
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                toast.success("Logado com sucesso")
+                navigate("/admin", { replace: true })
+            })
+            .catch(() => {
+                toast.error("Algo deu errado ao logar!")
+                console.log("ERRO AO LOGAR!")
+            })
     }
 
 
