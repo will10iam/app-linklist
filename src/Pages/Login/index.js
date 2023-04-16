@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './login.css'
 import Logo from '../../Components/Logo'
+import Input from '../../Components/Input'
 import { auth } from '../../Services/firebaseConnection'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { toast } from 'react-toastify'
@@ -37,14 +38,14 @@ export default function Login() {
             <Logo />
 
             <form className='form' onSubmit={handleLogin}>
-                <input
+                <Input
                     type='email'
                     placeholder='Digite seu email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
 
-                <input
+                <Input
                     type='password'
                     placeholder='*********'
                     autoComplete='on'
