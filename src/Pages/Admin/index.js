@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './admin.css'
 import Header from '../../Components/Header'
 import Logo from '../../Components/Logo'
@@ -16,6 +16,27 @@ export default function Admin() {
     const [backgroundColorInput, setBackgroundColorInput] = useState("#f1f1f1");
     const [textColorInput, setTextColorInput] = useState("#121212");
 
+    const [links, setLinks] = useState([])
+
+    useEffect(() => {
+        const linksRef = collection(db, "links")
+        const queryRef = query(linksRef, orderBy("created", "asc"))
+        const unsub = onSnapshot(queryRef, (snapshot) => {
+            let lista = []
+
+            snapshot.forEach((doc) => {
+                lista.push({
+                    id: doc.id,
+                    name: doc.data().name,
+                    url: doc.data().url,
+                    bg: doc.data().bg,
+                    color: doc.data().color
+                })
+            })
+
+            setLinks(lista);
+        })
+    }, [])
 
     async function handleRegister(e) {
         e.preventDefault()
@@ -44,6 +65,11 @@ export default function Admin() {
                 toast.error("ERRO AO REGISTRAR!")
             })
 
+    }
+
+    async function handleDeleteLink(id) {
+        const docRef = doc(db, "links", id)
+        await deleteDoc(docRef)
     }
 
 
@@ -100,17 +126,20 @@ export default function Admin() {
                     Meus Links
                 </h2>
 
-                <article
-                    className='list animate-pop'
-                    style={{ backgroundColor: "#000", color: "#FFF" }}
-                >
-                    <p>Nosso canal do Youtube</p>
-                    <div>
-                        <button className='btn-delete'>
-                            <FiTrash2 size={18} color='#FFF' />
-                        </button>
-                    </div>
-                </article>
+                {links.map((item, index) => (
+                    <article
+                        key={index}
+                        className='list animate-pop'
+                        style={{ backgroundColor: item.bg, color: item.color }}
+                    >
+                        <p>{item.name}</p>
+                        <div>
+                            <button className='btn-delete' onClick={() => handleDeleteLink(item.id)}>
+                                <FiTrash2 size={18} color='#FFF' />
+                            </button>
+                        </div>
+                    </article>
+                ))}
 
             </div>
         </>

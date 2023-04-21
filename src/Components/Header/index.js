@@ -22,7 +22,7 @@ export default function Header() {
                 <div className='menu'>
                     <nav>
                         <a href="/">Links</a>
-                        <a>Redes Sociais</a>
+                        <a href="/admin/social">Redes Sociais</a>
                         <a href={handleLogout} onClick={handleLogout}><AiOutlinePoweroff /></a>
                     </nav>
                 </div>
