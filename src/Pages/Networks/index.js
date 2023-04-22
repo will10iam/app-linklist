@@ -54,7 +54,7 @@ export default function Network() {
         <div className='admin-container'>
             <Header />
 
-            <h1 className='title-social'>Suas redes sociais</h1>
+            <h1 className='title-social'>Redes sociais</h1>
 
             <form className='form' onSubmit={handleSave}>
                 <label className='label'>Facebook</label>
