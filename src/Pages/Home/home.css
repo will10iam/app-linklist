@@ -19,6 +19,14 @@
     margin-bottom: 18px;
 }
 
+.home-container h3 {
+    margin-top: 230px;
+    color: dimgrey;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 13px;
+}
+
 .links {
     display: flex;
     flex-direction: column;

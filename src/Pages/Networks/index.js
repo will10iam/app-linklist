@@ -10,7 +10,7 @@ import { setDoc, doc, getDoc } from 'firebase/firestore'
 export default function Network() {
     const [facebook, setFacebook] = useState("")
     const [instagram, setInstagram] = useState("")
-    const [youtube, setYoutube] = useState("")
+    const [github, setGithub] = useState("")
 
     useEffect(() => {
         function loadLinks() {
@@ -21,7 +21,7 @@ export default function Network() {
 
                     if (snapshot.data() !== undefined) {
                         setFacebook(snapshot.data().facebook)
-                        setYoutube(snapshot.data().youtube)
+                        setGithub(snapshot.data().github)
                         setInstagram(snapshot.data().instagram)
                     }
                 })
@@ -32,14 +32,14 @@ export default function Network() {
     function handleSave(e) {
         e.preventDefault();
 
-        if (facebook === '' || youtube === '' || instagram === '') {
+        if (facebook === '' || github === '' || instagram === '') {
             toast.warning("Preencha os campos antes de salvar")
             return;
         }
 
         setDoc(doc(db, "socialmedia", "link"), {
             facebook: facebook,
-            youtube: youtube,
+            github: github,
             instagram: instagram
         }).then(() => {
             toast.success("Links salvos com sucesso")
@@ -50,11 +50,6 @@ export default function Network() {
 
     }
 
-
-
-
-
-
     return (
         <div className='admin-container'>
             <Header />
@@ -62,21 +57,21 @@ export default function Network() {
             <h1 className='title-social'>Suas redes sociais</h1>
 
             <form className='form' onSubmit={handleSave}>
-                <label className='label'>Link do Facebook</label>
+                <label className='label'>Facebook</label>
                 <Input
                     placeholder="Digite a URL aqui.."
                     value={facebook}
                     onChange={(e) => setFacebook(e.target.value)}
                 />
 
-                <label className='label'>Link do Youtube</label>
+                <label className='label'>Github</label>
                 <Input
                     placeholder="Digite a URL aqui.."
-                    value={youtube}
-                    onChange={(e) => setYoutube(e.target.value)}
+                    value={github}
+                    onChange={(e) => setGithub(e.target.value)}
                 />
 
-                <label className='label'>Link do Instagram</label>
+                <label className='label'>Instagram</label>
                 <Input
                     placeholder="Digite a URL aqui.."
                     value={instagram}
