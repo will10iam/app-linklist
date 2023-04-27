@@ -4,6 +4,8 @@
 <h1 align="center">Um app que junta todos os seus links em um único lugar ;)</h1>
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)
+![Badge de License](http://img.shields.io//npm/l/:packageName?registry_uri=https%3A%2F%2Fregistry.npmjs.com)
+	
 
 
 
