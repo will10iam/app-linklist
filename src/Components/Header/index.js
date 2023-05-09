@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth"
 
 import React from 'react'
 
-export default function Header() {
+export default function Header(props) {
     const toggleMenu = () =>
         document.body.classList.toggle("open");
 
@@ -21,8 +21,8 @@ export default function Header() {
                 <div className='background'></div>
                 <div className='menu'>
                     <nav>
-                        <a href="/">Links</a>
-                        <a href="/admin/social">Redes Sociais</a>
+                        <a href={props.url1}>{props.name1}</a>
+                        <a href={props.url2}>{props.name2}</a>
                         <a href={handleLogout} onClick={handleLogout}><AiOutlinePoweroff /></a>
                     </nav>
                 </div>
