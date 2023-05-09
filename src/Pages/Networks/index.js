@@ -52,7 +52,7 @@ export default function Network() {
 
     return (
         <div className='admin-container'>
-            <Header />
+            <Header name1="Links" name2="Gerenciar Links" url1="/" url2="/admin" />
 
             <h1 className='title-social'>Redes sociais</h1>
 

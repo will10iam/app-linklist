@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
+
 import './home.css'
+
 import Social from '../../Components/Social'
+
 import { FaFacebook, FaGithub, FaInstagram } from 'react-icons/fa'
 
 import { getDocs, collection, query, orderBy, doc, getDoc } from 'firebase/firestore'
 import { db } from '../../Services/firebaseConnection'
+
 
 export default function Home() {
 
@@ -59,6 +63,7 @@ export default function Home() {
 
     return (
         <div className='home-container'>
+
 
             <h1>William Berbet</h1>
             <span>Veja meus links 👇</span>
