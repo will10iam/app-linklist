@@ -4,7 +4,7 @@ import './home.css'
 
 import Social from '../../Components/Social'
 
-import { FaFacebook, FaGithub, FaInstagram } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 
 import { getDocs, collection, query, orderBy, doc, getDoc } from 'firebase/firestore'
 import { db } from '../../Services/firebaseConnection'
@@ -50,7 +50,7 @@ export default function Home() {
                     if (snapshot.data() !== undefined) {
                         setSocialMediaLinks({
                             facebook: snapshot.data().facebook,
-                            github: snapshot.data().github,
+                            whatsapp: snapshot.data().whatsapp,
                             instagram: snapshot.data().instagram
                         })
                     }
@@ -65,7 +65,7 @@ export default function Home() {
         <div className='home-container'>
 
 
-            <h1>William Berbet</h1>
+            <h1>Oi, bem vindo!</h1>
             <span>Veja meus links 👇</span>
 
             <main className='links'>
@@ -87,8 +87,8 @@ export default function Home() {
                         <FaFacebook size={35} color="#3b5998" />
                     </Social>
 
-                    <Social url={socialMediaLinks?.github}>
-                        <FaGithub size={35} color='#F1F1F1' />
+                    <Social url={socialMediaLinks?.whatsapp}>
+                        <FaWhatsapp size={35} color='#55ec69' />
                     </Social>
 
                     <Social url={socialMediaLinks?.instagram}>

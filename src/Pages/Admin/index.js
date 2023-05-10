@@ -75,7 +75,7 @@ export default function Admin() {
 
     return (
         <>
-            <Header name1="Links" name2="Redes Sociais" url1="/" url2="/admin/social" />
+            <Header name1="Home" name2="Redes Sociais" url1="/" url2="/admin/social" />
 
             <div className='admin-container'>
                 <Logo />

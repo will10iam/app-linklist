@@ -10,7 +10,7 @@ import { setDoc, doc, getDoc } from 'firebase/firestore'
 export default function Network() {
     const [facebook, setFacebook] = useState("")
     const [instagram, setInstagram] = useState("")
-    const [github, setGithub] = useState("")
+    const [whatsapp, setWhatsapp] = useState("")
 
     useEffect(() => {
         function loadLinks() {
@@ -21,7 +21,7 @@ export default function Network() {
 
                     if (snapshot.data() !== undefined) {
                         setFacebook(snapshot.data().facebook)
-                        setGithub(snapshot.data().github)
+                        setWhatsapp(snapshot.data().whatsapp)
                         setInstagram(snapshot.data().instagram)
                     }
                 })
@@ -32,14 +32,14 @@ export default function Network() {
     function handleSave(e) {
         e.preventDefault();
 
-        if (facebook === '' || github === '' || instagram === '') {
+        if (facebook === '' || whatsapp === '' || instagram === '') {
             toast.warning("Preencha os campos antes de salvar")
             return;
         }
 
         setDoc(doc(db, "socialmedia", "link"), {
             facebook: facebook,
-            github: github,
+            whatsapp: whatsapp,
             instagram: instagram
         }).then(() => {
             toast.success("Links salvos com sucesso")
@@ -52,7 +52,7 @@ export default function Network() {
 
     return (
         <div className='admin-container'>
-            <Header name1="Links" name2="Gerenciar Links" url1="/" url2="/admin" />
+            <Header name1="Home" name2="Links" url1="/" url2="/admin" />
 
             <h1 className='title-social'>Redes sociais</h1>
 
@@ -64,11 +64,11 @@ export default function Network() {
                     onChange={(e) => setFacebook(e.target.value)}
                 />
 
-                <label className='label'>Github</label>
+                <label className='label'>Whatsapp</label>
                 <Input
                     placeholder="Digite a URL aqui.."
-                    value={github}
-                    onChange={(e) => setGithub(e.target.value)}
+                    value={whatsapp}
+                    onChange={(e) => setWhatsapp(e.target.value)}
                 />
 
                 <label className='label'>Instagram</label>
