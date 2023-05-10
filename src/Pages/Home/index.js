@@ -4,7 +4,7 @@ import './home.css'
 
 import Social from '../../Components/Social'
 
-import { FaFacebook, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 
 import { getDocs, collection, query, orderBy, doc, getDoc } from 'firebase/firestore'
 import { db } from '../../Services/firebaseConnection'
@@ -65,7 +65,7 @@ export default function Home() {
         <div className='home-container'>
 
 
-            <h1>Oi, bem vindo ao LinkUp!</h1>
+            <h1>Oi, bem vindo!</h1>
             <span>Veja meus links 👇</span>
 
             <main className='links'>
