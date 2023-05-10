@@ -65,7 +65,7 @@ export default function Home() {
         <div className='home-container'>
 
 
-            <h1>Oi, bem vindo!</h1>
+            <h1>Oi, bem vindo ao LinkUp!</h1>
             <span>Veja meus links 👇</span>
 
             <main className='links'>
